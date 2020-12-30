@@ -7,6 +7,7 @@ import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder
 import pandas as pd
+import joblib
 from azureml.core.run import Run
 from azureml.data.dataset_factory import TabularDatasetFactory
 
@@ -68,6 +69,14 @@ def main():
 
     accuracy = model.score(x_test, y_test)
     run.log("Accuracy", np.float(accuracy))
-
+    
+    # Save model
+    filename = "bankmarketing_model.pkl"
+    output_dir='./outputs/model'
+    os.makedirs(output_dir, exist_ok=True)
+    full_path = os.path.join(output_dir, filename)
+    joblib.dump(value=model, filename=full_path)
+    print("model saved in {}".format(full_path))
+        
 if __name__ == '__main__':
     main()

@@ -1,0 +1,4 @@
+{
+    "ai.azureml.defaultWorkspaceId": "/subscriptions/46794350-df0e-486b-a343-8cc9bdee0058/resourceGroups/DatabricksDemo/providers/Microsoft.MachineLearningServices/workspaces/DatabricksDemo",
+    "jupyter.jupyterServerType": "remote"
+}
